@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "659786692399",
+    "firebase_url": "https://refillink-3c393-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "refillink-3c393",
+    "storage_bucket": "refillink-3c393.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659786692399:android:ece9aa456c6d1c9b4413da",
+        "android_client_info": {
+          "package_name": "com.hologram.mks.refillink"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659786692399-4kqvks6pl3b5sfiucloers5ofad0vdfl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBX0M1REQPAxERobUv_6PHCJIYawheV_Z0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659786692399-4kqvks6pl3b5sfiucloers5ofad0vdfl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
