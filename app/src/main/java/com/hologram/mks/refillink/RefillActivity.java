@@ -67,7 +67,25 @@ public class RefillActivity extends AppCompatActivity {
             }
         });
 
-       
+        refillBtn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myRef.child("relay").setValue(750);
+            }
+        });
+
+        refillBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myRef.child("relay").setValue(500);
+            }
+        });
+        refillBtn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myRef.child("relay").setValue(250);
+            }
+        });
 
 
     }
