@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent daftar = new Intent(this, RefillActivity.class);
+        Intent daftar = new Intent(this, ScanActivity.class);
         startActivity(daftar);
     }
 }
