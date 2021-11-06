@@ -55,8 +55,14 @@ public class ScanActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(ScanActivity.this, result.getText(), Toast.LENGTH_SHORT).show();
+                        String hasilScan = result.getText();
+                        String[] split = hasilScan.split("/");
+                        String kodeDispenser = split[1];
+
+
+                        Toast.makeText(ScanActivity.this, kodeDispenser, Toast.LENGTH_SHORT).show();
                         Intent dispenser = new Intent(ScanActivity.this,RefillActivity.class);
+                        dispenser.putExtra("kode", kodeDispenser);
                         startActivity(dispenser);
                     }
                 });

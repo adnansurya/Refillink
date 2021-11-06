@@ -31,6 +31,9 @@ public class RefillActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_refill);
 
+        String kode = getIntent().getExtras().getString("kode");
+
+
         refillBtn1 = findViewById(R.id.refillBtn1);
         refillBtn2 = findViewById(R.id.refillBtn2);
         refillBtn3 = findViewById(R.id.refillBtn3);
@@ -39,7 +42,7 @@ public class RefillActivity extends AppCompatActivity {
         persenTxt = findViewById(R.id.persenTxt);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("mesin").child("dispenser1");
+        DatabaseReference myRef = database.getReference("mesin").child(kode);
 
         // Read from the database
         myRef.addValueEventListener(new ValueEventListener() {
@@ -54,9 +57,7 @@ public class RefillActivity extends AppCompatActivity {
                 Long persenDbl = (tersediaLg *100 /  kapasitasLg);
                 Log.e(TAG, "Value is: " + kapasitasLg +" | " + tersediaLg);
 
-
-
-                kapasitasTxt.setText(String.format("%d L", kapasitasLg));
+                kapasitasTxt.setText(String.format("%d L", tersediaLg));
                 persenTxt.setText(String.format("%d %%", persenDbl));
             }
 
@@ -70,20 +71,20 @@ public class RefillActivity extends AppCompatActivity {
         refillBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myRef.child("relay").setValue(750);
+                myRef.child("relay").setValue("750");
             }
         });
 
         refillBtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myRef.child("relay").setValue(500);
+                myRef.child("relay").setValue("500");
             }
         });
         refillBtn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myRef.child("relay").setValue(250);
+                myRef.child("relay").setValue("250");
             }
         });
 
