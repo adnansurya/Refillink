@@ -18,12 +18,12 @@ public class MainActivity extends AppCompatActivity {
         
         scanBtn = findViewById(R.id.scanBtn);
 
-        scanBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent daftar = new Intent(MainActivity.this, ScanActivity.class);
-                startActivity(daftar);
-            }
+        Intent daftar = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(daftar);
+
+        scanBtn.setOnClickListener(v -> {
+            Intent scanQr = new Intent(MainActivity.this, ScanActivity.class);
+            startActivity(scanQr);
         });
     }
 }
