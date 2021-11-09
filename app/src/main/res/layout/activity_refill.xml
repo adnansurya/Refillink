@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Jumlah Air :"
-        app:layout_constraintStart_toStartOf="@+id/titleTxt"
+        app:layout_constraintStart_toStartOf="@+id/refillBtn1"
         app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
 
     <TextView
@@ -50,7 +50,7 @@
         android:text="10 L"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/titleTxt"
+        app:layout_constraintEnd_toEndOf="@+id/refillBtn1"
         app:layout_constraintStart_toEndOf="@+id/persenTxt"
         app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
 
@@ -124,5 +124,38 @@
         app:layout_constraintEnd_toEndOf="@+id/refillBtn3"
         app:layout_constraintStart_toStartOf="@+id/refillBtn3"
         app:layout_constraintTop_toBottomOf="@+id/refillBtn3" />
+
+    <TextView
+        android:id="@+id/instruksiTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Instruksi"
+        app:layout_constraintEnd_toEndOf="@+id/refillBtn3"
+        app:layout_constraintStart_toStartOf="@+id/refillBtn3"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="right"
+        android:text="Saldo :"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/saldo2Txt"
+        app:layout_constraintStart_toStartOf="@+id/refillBtn3"
+        app:layout_constraintTop_toTopOf="@+id/saldo2Txt" />
+
+    <TextView
+        android:id="@+id/saldo2Txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Rp. 10000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/refillBtn3"
+        app:layout_constraintTop_toBottomOf="@+id/instruksiTxt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
