@@ -18,27 +18,14 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/literTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_marginStart="16dp"
-            android:text="750 mL"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
             android:id="@+id/mesinTxt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
             android:text="dispenser"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/persen2Txt"
-            app:layout_constraintStart_toEndOf="@+id/literTxt"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -46,23 +33,34 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:text="Rp. 5.000"
+            android:layout_marginBottom="16dp"
+            android:text="15%"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/literTxt" />
-
-        <TextView
-            android:id="@+id/waktuTxt"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="2021-11-08 15:24:25"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/persen2Txt" />
+            app:layout_constraintTop_toBottomOf="@+id/mesinTxt" />
+
+        <TextView
+            android:id="@+id/mlTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:text="0.5 L"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/persen2Txt"
+            app:layout_constraintEnd_toStartOf="@+id/persen2Txt"
+            app:layout_constraintTop_toTopOf="@+id/persen2Txt" />
+
+        <TextView
+            android:id="@+id/relayTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="status"
+            app:layout_constraintBottom_toBottomOf="@+id/persen2Txt"
+            app:layout_constraintStart_toStartOf="@+id/mesinTxt"
+            app:layout_constraintTop_toTopOf="@+id/persen2Txt" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

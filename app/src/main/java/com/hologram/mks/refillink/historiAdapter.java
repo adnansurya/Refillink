@@ -58,7 +58,7 @@ public class historiAdapter extends FirebaseRecyclerAdapter<
 
             literTxt = itemView.findViewById(R.id.literTxt);
             waktuTxt = itemView.findViewById(R.id.waktuTxt);
-            hargaTxt = itemView.findViewById(R.id.hargaTxt);
+            hargaTxt = itemView.findViewById(R.id.persen2Txt);
             mesinTxt = itemView.findViewById(R.id.mesinTxt);
         }
     }

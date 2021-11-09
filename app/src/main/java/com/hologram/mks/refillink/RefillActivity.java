@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -66,9 +67,7 @@ public class RefillActivity extends AppCompatActivity {
             Intent login = new Intent(RefillActivity.this, LoginActivity.class);
             startActivity(login);
         }
-
-
-
+        
 
         kodeMesin = getIntent().getExtras().getString("kode");
 
@@ -116,10 +115,30 @@ public class RefillActivity extends AppCompatActivity {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 String dispenserStatus = dataSnapshot.child("relay").getValue(String.class);
-                if(dispenserStatus == "OFF"){
+                if(pressed && !dispenserStatus.equals("OFF")){
                     instruksiTxt.setText("Mengisi...");
-                }else  if(dispenserStatus != "OFF"){
+                }else  if(!pressed && dispenserStatus.equals("OFF")){
                     instruksiTxt.setText("Silakan pilih jumlah air yang diinginkan");
+                }else if(pressed && dispenserStatus.equals("OFF")){
+                    instruksiTxt.setText("Pengisian Berhasil!");
+                    new Handler().postDelayed(new Runnable() {
+
+
+                        @Override
+                        public void run() {
+                            // TODO Auto-generated method stub
+                            Intent i = new Intent(RefillActivity.this, MainActivity.class);
+                            startActivity(i);
+
+                            //jeda selesai Splashscreen
+                            this.finish();
+                        }
+
+                        private void finish() {
+                            // TODO Auto-generated method stub
+
+                        }
+                    }, 3000);
                 }
                 kapasitasLg = dataSnapshot.child("kapasitas").getValue(Double.class);
                 tersediaLg = dataSnapshot.child("tersedia").getValue(Double.class);

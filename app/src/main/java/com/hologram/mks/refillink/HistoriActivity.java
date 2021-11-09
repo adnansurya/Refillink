@@ -49,7 +49,7 @@ public class HistoriActivity extends AppCompatActivity {
 
         mbase = FirebaseDatabase.getInstance().getReference("user").child(uid);
 
-        recyclerView = findViewById(R.id.recycler1);
+        recyclerView = findViewById(R.id.recycler2);
 
         recyclerView.setLayoutManager(
                 new LinearLayoutManager(this));
