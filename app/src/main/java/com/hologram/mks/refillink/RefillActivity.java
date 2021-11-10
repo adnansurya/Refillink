@@ -54,10 +54,10 @@ public class RefillActivity extends AppCompatActivity {
     String uid = null;
 
     String chatId = "";
-    String botToken = "1389983359:AAHGPAMEwdwmO6Bd_PgtU1cvFPNC65r-oXM";
+    String botToken = "";
     String telegramUrl = "https://api.telegram.org/bot" +botToken+"/sendMessage";
 
-    
+
 
     boolean pressed = false;
     long saldo;
@@ -129,7 +129,8 @@ public class RefillActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                chatId = dataSnapshot.getValue(String.class);
+                chatId = dataSnapshot.child("chat_id").getValue(String.class);
+                botToken = dataSnapshot.child("bot").getValue(String.class);
 
             }
 
