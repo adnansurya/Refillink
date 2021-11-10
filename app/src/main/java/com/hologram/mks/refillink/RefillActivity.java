@@ -55,7 +55,7 @@ public class RefillActivity extends AppCompatActivity {
 
     String chatId = "";
     String botToken = "";
-    String telegramUrl = "https://api.telegram.org/bot" +botToken+"/sendMessage";
+    String telegramUrl = "https://api.telegram.org/bot";
 
 
 
@@ -201,7 +201,7 @@ public class RefillActivity extends AppCompatActivity {
                     Toast.makeText(RefillActivity.this, "Saldo tidak cukup", Toast.LENGTH_SHORT).show();
 
                 }else if((tersediaLg - 0.75) < (kapasitasLg * 0.1)){
-                    sendTelegram(chatId);
+                    sendTelegram(chatId, botToken);
                 } else{
                     mesinRef.child("relay").setValue("750");
 
@@ -223,7 +223,7 @@ public class RefillActivity extends AppCompatActivity {
                     Toast.makeText(RefillActivity.this, "Saldo tidak cukup", Toast.LENGTH_SHORT).show();
 
                 }else if((tersediaLg - 0.5) < (kapasitasLg * 0.1)){
-                    sendTelegram(chatId);
+                    sendTelegram(chatId, botToken);
                 }else{
                     mesinRef.child("relay").setValue("500");
 
@@ -244,7 +244,7 @@ public class RefillActivity extends AppCompatActivity {
                     Toast.makeText(RefillActivity.this, "Saldo tidak cukup", Toast.LENGTH_SHORT).show();
 
                 }else if((tersediaLg - 0.25) < (kapasitasLg * 0.1)){
-                    sendTelegram(chatId);
+                    sendTelegram(chatId, botToken);
                 }else{
                     mesinRef.child("relay").setValue("250");
                     userRef.child(uid).child("saldo").setValue(saldo - 1500);
@@ -261,10 +261,11 @@ public class RefillActivity extends AppCompatActivity {
 
 
 
-    void sendTelegram(String chat){
+    void sendTelegram(String chat, String token){
+
         String msg = String.format("<b>%s</b> memerlukan maintenance.%%0A%%0ATersisa :<b>%%0A%.2f L / %.2f %%</b>",
                 kodeMesin, tersediaLg, (tersediaLg * 100.0 / kapasitasLg) );
-        String url = telegramUrl + "?chat_id="+chat+"&parse_mode=html"+"&text="+msg;
+        String url = telegramUrl+token+"/sendMessage" + "?chat_id="+chat+"&parse_mode=html"+"&text="+msg;
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
