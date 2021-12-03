@@ -174,6 +174,13 @@ public class MainActivity extends AppCompatActivity {
                 Intent histori  = new Intent(this, HistoriActivity.class);
                 startActivity(histori);
                 return true;
+
+            case R.id.action_topup:
+                // User chose the "Favorite" action, mark the current item
+                // as a favorite...
+                Intent topup  = new Intent(this, TopupActivity.class);
+                startActivity(topup);
+                return true;
             case R.id.action_logout:
                 // User chose the "Favorite" action, mark the current item
                 // as a favorite...

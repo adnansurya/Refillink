@@ -18,6 +18,13 @@
         tools:ignore="HardcodedText" />
 
     <item
+        android:id="@+id/action_topup"
+        android:icon="@drawable/ic_code_scanner_auto_focus_on"
+        android:title="Topup"
+        app:showAsAction="never"
+        tools:ignore="HardcodedText" />
+
+    <item
         android:id="@+id/action_logout"
         android:icon="@drawable/ic_code_scanner_auto_focus_on"
         android:title="Logout"
