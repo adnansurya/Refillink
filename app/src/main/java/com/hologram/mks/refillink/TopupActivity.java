@@ -2,12 +2,18 @@ package com.hologram.mks.refillink;
 
 import static android.content.ContentValues.TAG;
 
+
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +36,8 @@ public class TopupActivity extends AppCompatActivity {
     long saldo;
 
     TextView saldoTxt;
+    EditText topupTxt;
+    Button topupBtn;
 
 
     @Override
@@ -41,6 +49,9 @@ public class TopupActivity extends AppCompatActivity {
         userRef = database.getReference("user");
 
         saldoTxt = findViewById(R.id.saldo3Txt);
+        topupTxt = findViewById(R.id.topupTxt);
+        topupBtn = findViewById(R.id.topupBtn);
+
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
         if (user != null) {
@@ -72,5 +83,30 @@ public class TopupActivity extends AppCompatActivity {
                 }
             });
         }
+
+        topupBtn.setOnClickListener(v -> {
+            long nilaiTopup = Long.parseLong(topupTxt.getText().toString());
+            long totalTopup = saldo + nilaiTopup;
+            userRef.child(uid).child("saldo").setValue(totalTopup);
+            Toast.makeText(this, "Topup Berhasil! \nSaldo Saat ini : Rp. " + totalTopup, Toast.LENGTH_LONG).show();
+            new Handler().postDelayed(new Runnable() {
+
+
+                @Override
+                public void run() {
+                    // TODO Auto-generated method stub
+                    Intent i = new Intent(TopupActivity.this, MainActivity.class);
+                    startActivity(i);
+
+                    //jeda selesai Splashscreen
+                    this.finish();
+                }
+
+                private void finish() {
+                    // TODO Auto-generated method stub
+
+                }
+            }, 2000);
+        });
     }
 }
