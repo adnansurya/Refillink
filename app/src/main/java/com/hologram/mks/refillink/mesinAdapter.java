@@ -12,8 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
-public class mesinAdapter extends FirebaseRecyclerAdapter<
-        mesin, mesinAdapter.mesinViewholder> {
+public class mesinAdapter extends FirebaseRecyclerAdapter<mesin, mesinAdapter.mesinViewholder> {
 
     public mesinAdapter(
             @NonNull FirebaseRecyclerOptions<mesin> options)
@@ -46,6 +45,8 @@ public class mesinAdapter extends FirebaseRecyclerAdapter<
         }
 
         holder.relayTxt.setText(relay);
+        String lokasi = "(" + model.getLokasi() + ")";
+        holder.lokasiTxt.setText(lokasi );
     }
 
     @NonNull
@@ -64,7 +65,7 @@ public class mesinAdapter extends FirebaseRecyclerAdapter<
     // view (here "person.xml")
     class mesinViewholder
             extends RecyclerView.ViewHolder {
-        TextView mliterTxt, persenTxt, mesinTxt, relayTxt;
+        TextView mliterTxt, persenTxt, mesinTxt, relayTxt, lokasiTxt;
         public mesinViewholder(@NonNull View itemView)
         {
             super(itemView);
@@ -73,6 +74,7 @@ public class mesinAdapter extends FirebaseRecyclerAdapter<
             persenTxt = itemView.findViewById(R.id.persen2Txt);
             mesinTxt = itemView.findViewById(R.id.mesinTxt);
             relayTxt = itemView.findViewById(R.id.relayTxt);
+            lokasiTxt = itemView.findViewById(R.id.lokasiTxt);
         }
     }
 }

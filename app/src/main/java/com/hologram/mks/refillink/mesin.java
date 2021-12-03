@@ -2,7 +2,7 @@ package com.hologram.mks.refillink;
 
 public class mesin {
 
-    private String idMesin, relay;
+    private String idMesin, relay, lokasi;
     private double tersedia, kapasitas;
 
     public mesin(){
@@ -39,5 +39,13 @@ public class mesin {
 
     public void setKapasitas(double kapasitas) {
         this.kapasitas = kapasitas;
+    }
+
+    public String getLokasi() {
+        return lokasi;
+    }
+
+    public void setLokasi(String lokasi) {
+        this.lokasi = lokasi;
     }
 }

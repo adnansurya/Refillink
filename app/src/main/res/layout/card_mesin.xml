@@ -62,5 +62,14 @@
             app:layout_constraintStart_toStartOf="@+id/mesinTxt"
             app:layout_constraintTop_toTopOf="@+id/persen2Txt" />
 
+        <TextView
+            android:id="@+id/lokasiTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="lokasi"
+            app:layout_constraintBottom_toBottomOf="@+id/mesinTxt"
+            app:layout_constraintStart_toEndOf="@+id/mesinTxt" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

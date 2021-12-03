@@ -110,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
                         mesinNew.setKapasitas(snapshot.child("kapasitas").getValue(Double.class));
                         mesinNew.setTersedia(snapshot.child("tersedia").getValue(Double.class));
                         mesinNew.setIdMesin(snapshot.getKey());
+                        mesinNew.setLokasi(snapshot.child("lokasi").getValue(String.class));
                         mesinNew.setRelay(snapshot.child("relay").getValue(String.class));
                         return mesinNew;
                     }

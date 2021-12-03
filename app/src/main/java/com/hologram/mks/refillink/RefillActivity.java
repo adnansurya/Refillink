@@ -148,6 +148,11 @@ public class RefillActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
+                String dispenserLokasi = dataSnapshot.child("lokasi").getValue(String.class);
+                String lokasi = kodeMesin + " (" + dispenserLokasi + ")";
+                titleTxt.setText(lokasi);
+
+
                 String dispenserStatus = dataSnapshot.child("relay").getValue(String.class);
                 if(pressed && !dispenserStatus.equals("OFF")){
                     instruksiTxt.setText("Mengisi...");
