@@ -5,6 +5,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -18,6 +19,7 @@ import com.firebase.ui.auth.IdpResponse;
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -36,10 +38,12 @@ import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -65,6 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                     .createSignInIntentBuilder()
                     .setTheme(R.style.LoginTheme)
                     .setAvailableProviders(providers)
+//                    .setIsSmartLockEnabled(false)
                     .build();
             signInLauncher.launch(signInIntent);
 
@@ -145,4 +150,10 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
     );
+
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 }

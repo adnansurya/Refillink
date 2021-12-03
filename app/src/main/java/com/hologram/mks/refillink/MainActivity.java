@@ -4,6 +4,7 @@ import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,6 +21,7 @@ import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.firebase.ui.database.SnapshotParser;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -42,11 +44,16 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     mesinAdapter adapter; // Create Object of the Adapter class
 
+    Snackbar mSnackbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         userRef = database.getReference("user");
@@ -129,12 +136,27 @@ public class MainActivity extends AppCompatActivity {
             startActivity(scanQr);
         });
 
+        final ConstraintLayout layout = findViewById(R.id.mainLayout);
+        mSnackbar = Snackbar.make(layout, "Tekan sekali lagi untuk keluar dari aplikasi", Snackbar.LENGTH_SHORT);
+
 
     }
     @Override protected void onStop()
     {
         super.onStop();
         adapter.stopListening();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mSnackbar.isShown()) {
+           finish();
+//            finishAffinity();
+//            finishAndRemoveTask();
+//                        System.exit(0);
+        } else {
+            mSnackbar.show();
+        }
     }
 
 
@@ -187,6 +209,7 @@ public class MainActivity extends AppCompatActivity {
                 auth.signOut();
                 Intent logout  = new Intent(this, LoginActivity.class);
                 startActivity(logout);
+//                finish();
                 return true;
 
             default:

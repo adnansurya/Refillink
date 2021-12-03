@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/Refillink/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/Refillink/app/src/main/res/layout/activity_main.xml" value="0.12047101449275362" />
         <entry key="..\:/AndroidStudioProjects/Refillink/app/src/main/res/layout/activity_refill.xml" value="0.18" />
         <entry key="..\:/AndroidStudioProjects/Refillink/app/src/main/res/layout/activity_topup.xml" value="0.22" />
