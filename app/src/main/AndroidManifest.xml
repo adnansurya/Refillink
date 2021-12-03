@@ -14,7 +14,8 @@
         android:theme="@style/Theme.Refillink">
         <activity
             android:name=".TopupActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:noHistory="true"/>
         <activity
             android:name=".Splash"
             android:exported="true"
@@ -30,10 +31,12 @@
             android:exported="false" />
         <activity
             android:name=".ScanActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:noHistory="true"/>
         <activity
             android:name=".RefillActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:noHistory="true"/>
         <activity
             android:name=".LoginActivity"
             android:exported="true" />
